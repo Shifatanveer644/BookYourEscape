@@ -1,0 +1,17 @@
+.about-us-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .our-mission, .our-team {
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  ul li {
+    margin-top: 10px;
+  }
+  

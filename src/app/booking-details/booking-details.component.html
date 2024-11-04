@@ -1,0 +1,24 @@
+<div *ngIf="city">
+  <div class="container mt-5">
+    <div class="row align-items-center" style="height: 100vh;">
+      <div class="col-md-6">
+        <img [src]="city.imageUrl" class="img-fluid" alt="{{ city.name }}" style="max-height: 75%; width: 75%; object-fit: cover;">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h1 class="display-4">Welcome to {{ city.name }}</h1>
+        <p>Rating: {{ city.rating }} / 5</p>
+        <span class="star">
+          <app-rating [rating]="city.rating"></app-rating>
+        </span>
+        <p class="lead">
+          We are excited to welcome you to {{ city.name }}! 
+          Get ready to explore the city's famous attractions, enjoy delicious local food, and experience its unique culture. 
+          Your journey to {{ city.name }} is going to be unforgettable!
+        </p>
+        <button class="btn btn-success btn-lg" (click)="onBack()">Go Back</button>
+
+        <!-- <a [routerLink]="['/user']" class="btn btn-primary btn-lg me-2">Register</a> -->
+      </div>
+    </div>
+  </div>
+</div>

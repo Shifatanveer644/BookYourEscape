@@ -1,0 +1,24 @@
+.home-page {
+    text-align: center;
+  }
+  .card {
+    border: none;  /* Remove the border from all cards */
+  }
+  
+  
+  .destinations {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+  }
+  
+  .destination img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .destination h3 {
+    margin-top: 1em;
+  }
+  

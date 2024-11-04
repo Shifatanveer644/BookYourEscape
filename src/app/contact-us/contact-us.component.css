@@ -1,0 +1,37 @@
+.contact-form-container {
+  max-width: 600px;
+  margin: 40px auto;      /* Adds space at the top and centers the form */
+  padding: 20px;
+  padding-top: 50px;      /* Extra space at the top of the form */
+  overflow-y: auto;       /* Allows scrolling if content overflows */
+  max-height: 80vh;       /* Limits height to 80% of viewport */
+  box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+small {
+  color: red;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    min-height: 70vh; 
+}
+
+
+.image-container {
+    flex: 0 0 75%; 
+    height: 70vh; 
+    overflow: hidden; 
+}
+
+.image-container img {
+    width: 100%; 
+    height: 70%; 
+    object-fit: cover; 
+}

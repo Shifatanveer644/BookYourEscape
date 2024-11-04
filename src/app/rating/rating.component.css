@@ -1,0 +1,15 @@
+.crop{
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+div{
+    cursor: pointer;
+}
+.star {
+    color: gray; /* Unfilled star color */
+  }
+  .star.filled {
+    color: gold; /* Filled star color */
+  }

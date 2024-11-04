@@ -1,0 +1,103 @@
+<div class="container mt-3">
+  <!-- Header and Search Row -->
+  <div class="row align-items-center mb-3">
+    <div class="col-md-6">
+      <h2>Popular Destinations</h2>
+    </div>
+    <div class="col-md-6 text-end">
+      <form class="d-flex justify-content-end" (ngSubmit)="filterCities()">
+        <input 
+          class="form-control me-2" 
+          type="search" 
+          [(ngModel)]="searchTerm" 
+          placeholder="Search your destination" 
+          aria-label="Search" 
+          name="citySearch"
+        >
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- City Cards Row -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let city of filteredCities"> 
+      <div class="card h-100" style="width: 100%;">
+        <img [src]="city.imageUrl" class="card-img-top" [alt]="city.name + ' image'">
+        <div class="card-body d-flex flex-column">
+          <ng-container *ngIf="city.id === editingCityId; else viewMode">
+            <!-- Edit Mode -->
+            <input [(ngModel)]="city.name" class="form-control mb-2" placeholder="City Name" />
+            <input [(ngModel)]="city.price" type="number" class="form-control mb-2" placeholder="Price" />
+            <input [(ngModel)]="city.imageUrl" class="form-control mb-2" placeholder="Image URL" />
+            <textarea [(ngModel)]="city.description" class="form-control mb-2" placeholder="Description"></textarea>
+            <input [(ngModel)]="city.rating" type="number" class="form-control mb-2" placeholder="Rating" />
+            <button class="btn btn-primary" (click)="saveCity()">Save</button>
+            <button class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+          </ng-container>
+
+          <ng-template #viewMode>
+            <!-- View Mode -->
+            <h5 class="card-title">{{ city.name }}</h5>
+            <p class="card-text">{{ city.description }}</p>
+            <p class="card-text"><strong>Ticket cost:</strong> {{ city.price | currency:'INR' }}</p>
+            <p class="card-text"><strong>Rating:</strong> {{ city.rating }}</p>
+
+            <!-- Flex container for buttons -->
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <button class="btn btn-secondary" (click)="editCity(city.id)">Edit</button>
+              <a [routerLink]="['/booking-details', city.id]" class="btn btn-primary">Book Now</a>
+              <button class="btn btn-danger" (click)="deleteCity(city.id)">Delete</button>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" (click)="openAddCityModal()">Add New City</button>
+  </div>
+
+  <!-- No cities found message -->
+  <div *ngIf="filteredCities.length === 0" class="text-center">
+    <p>No cities found matching "{{ searchTerm }}"</p>
+  </div>
+
+  <div class="modal" tabindex="-1" *ngIf="showAddCityModal" class="show" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New City</h5>
+          <button type="button" class="btn-close" (click)="closeAddCityModal()"></button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="addNewCity()">
+            <div class="mb-3">
+              <label for="cityName" class="form-label">City Name</label>
+              <input type="text" class="form-control" id="cityName" [(ngModel)]="newCity.name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="cityDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="cityDescription" [(ngModel)]="newCity.description" name="description" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="cityImage" class="form-label">Image URL</label>
+              <input type="text" class="form-control" id="cityImage" [(ngModel)]="newCity.imageUrl" name="image" required>
+            </div>
+            <div class="mb-3">
+              <label for="cityCost" class="form-label">Cost</label>
+              <input type="number" class="form-control" id="cityCost" [(ngModel)]="newCity.price" name="cost" required>
+            </div>
+            <div class="mb-3">
+              <label for="cityRating" class="form-label">Rating</label>
+              <input type="number" class="form-control" id="cityRating" [(ngModel)]="newCity.rating" name="rating" required min="1" max="5">
+            </div>
+            <button type="submit" class="btn btn-primary">Add City</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

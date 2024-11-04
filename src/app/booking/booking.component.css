@@ -1,0 +1,31 @@
+/* Ensure the body takes up the full height */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ensures full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main container adjustments */
+.container {
+  margin-top:10px; /* Remove margin to keep it at the top */
+  flex-grow: 1; /* Allow container to grow */
+  padding-top: 90px; /* Add some padding */
+}
+
+/* Row adjustments for spacing */
+.row.align-items-center {
+  margin-bottom: 50px; /* Space between header and search */
+}
+
+/* Card container margin */
+.card-container {
+  margin-top: 45px; /* Space below the header */
+}
+
+/* Ensure cards occupy available space */
+.card {
+  height: 100%; /* Makes cards stretch to fill the space */
+}
+

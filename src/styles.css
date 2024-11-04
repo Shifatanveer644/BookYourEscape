@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+.card {
+    height: 100%; /* Ensures all cards have the same height */
+}
+
+.card-img-top {
+    width: 100%; /* Makes sure the image takes full width */
+    height: auto; /* Maintains the aspect ratio */
+    max-height: 200px; /* Sets a maximum height for images */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+.card-body {
+    padding: 1rem; /* Adjust the padding if needed */
+}
+.card {
+    border: 2px solid #007bff; /* Use Bootstrap's primary color */
+    transition: transform 0.2s, box-shadow 0.2s; /* Add smooth transition */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Raise the card on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
